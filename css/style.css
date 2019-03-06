@@ -641,8 +641,7 @@ body {
     left: 0;
     transition: all ease .2s; }
   .navigation__icon:before {
-    top: -.8rem;
-    transform-origin: right; }
+    top: -.8rem; }
   .navigation__icon:after {
     top: .8rem; }
 
