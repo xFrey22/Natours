@@ -1,0 +1,54 @@
+@mixin clearfix {
+    &::after {
+         content: "";
+         display: table;
+         clear: both;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+// MEDIA QUERY MANAGER 
+/*
+0-600:       PHONE
+600-900:     Tablet portrait
+900-1280:    Tablet landscape
+1280-1800 is where our normal styles apply
+1800 + :     Big descrop
+
+
+@mixin respond-phone {
+    
+    @media (max-width: 600px) { @content };
+}
+
+
+ORDER: Base + typography > general layout + grid > page layout > components
+$breakpoint argument choices
+-phone
+-tab-port
+-tab-land
+-big-desctop
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };      //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };      //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };         // 1200px
+    }
+    @if $breakpoint == big-desctop {
+        @media only screen and (min-width: 112.5em) { @content };      // 1800px
+    }
+}
